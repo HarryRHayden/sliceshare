@@ -1,0 +1,38 @@
+.App {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    background-color: #fef0de;
+    min-height: 100vh;
+  }
+  
+  .Main {
+    padding-top: 81px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  
+  a {
+    color: #140302;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  a:hover i {
+    color: #140302;
+  }
+  
+  i {
+    color: #fef0de;
+    font-size: 1.6rem;
+    padding: 7px;
+    vertical-align: middle;
+  }
+  
+  i:hover {
+    cursor: pointer;
+    color: #140302;
+  }

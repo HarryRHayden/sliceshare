@@ -1,0 +1,27 @@
+.NavBar {
+    background-color: #f17d3a;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .NavLink {
+    color: #fef0de;
+    font-size: 1.6rem;
+    padding: 7px;
+    vertical-align: middle;
+  }
+
+  .NavLink:hover {
+    color: #140302;
+    cursor: pointer;
+  }
+  
+  .Active {
+    color: #fef0de;
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .NavLink {
+      font-size: 1.3rem;
+    }
+  }
