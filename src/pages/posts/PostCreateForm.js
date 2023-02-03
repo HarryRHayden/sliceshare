@@ -23,13 +23,13 @@ function PostCreateForm() {
     
     
       <Button
-        className={`${btnStyles.Button} ${btnStyles.Blue}`}
+        className={`${btnStyles.Button} ${btnStyles.Bright}`}
         onClick={() => {}}
       >
-        cancel
+        Cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        create
+      <Button className={`${btnStyles.Button} ${btnStyles.Bright}`} type="submit">
+        Create
       </Button>
     </div>
   );
