@@ -6,7 +6,9 @@
     background: #883D0D;
     border: 1px solid #f17d3a;
     box-sizing: border-box;
-    border-radius: 2px;
+    align-self: center;
+    border-radius: 100px;
+    border-color: transparent;
     color: #fef0de;
     text-align: center;
     padding: 10px;
@@ -14,12 +16,13 @@
 
 .Header {
     font-weight: 600;
-    font-size: 20px;
+    font-size: 40px;
     line-height: 19px;
     text-align: center;
     letter-spacing: 0.3em;
     text-transform: uppercase;
     color: #883D0D;
+    padding-bottom: 20px;
 }
 
 .Link {
