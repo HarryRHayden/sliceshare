@@ -50,11 +50,11 @@ export const CurrentUserProvider = ({children}) => {
         axiosRes.interceptors.response.use(
             (response) => response,
             async (err) => {
-                if (err.response?.status === 401){
-                    try{
+                if (err.response?.status === 401) {
+                    try {
                         await axios.post("dj-rest-auth/token/refresh/");
                     } catch(err){
-                        setCurrentUser(prevCurrentUser => {
+                        setCurrentUser((prevCurrentUser) => {
                             if (prevCurrentUser){
                                 history.push("/signin");
                             }
