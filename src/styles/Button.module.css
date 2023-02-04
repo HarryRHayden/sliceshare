@@ -17,15 +17,15 @@
 }
 
 .Button:hover:active {
-    background-color: #883D0D !important;
+    background-color: #fef0de !important;
 }
 
 .Button:active {
-    background-color: #883D0D !important;
+    background-color: #fef0de !important;
 }
 
 .Button:focus {
-    background-color: #883D0D;
+    background-color: #fef0de;
 }
 
 .Wide {

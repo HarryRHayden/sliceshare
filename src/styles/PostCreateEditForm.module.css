@@ -1,3 +1,27 @@
 .Container {
     min-height: 343px;
-  }
+}
+
+.Input {
+  background: #f17d3a;
+  border: 1px solid #f17d3a;
+  box-sizing: border-box;
+  align-self: center;
+  border-radius: 100px;
+  border-color: transparent;
+  color: #140302;
+  text-align: center;
+  padding: 10px;
+}
+
+.TextArea {
+  background: #f17d3a;
+  border: 1px solid #f17d3a;
+  box-sizing: border-box;
+  align-self: center;
+  border-radius: 40px;
+  border-color: transparent;
+  color: #140302;
+  text-align: center;
+  padding: 10px;
+}

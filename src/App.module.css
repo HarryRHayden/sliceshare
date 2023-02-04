@@ -9,6 +9,22 @@
   padding-top: 81px;
 }
 
+input[type="file"] {
+  display: none;
+}
+
+.Content {
+  background: #883D0D;
+  border: 1px solid #f17d3a;
+  box-sizing: border-box;
+  align-self: center;
+  border-radius: 30px;
+  border-color: transparent;
+  color: #140302;
+  text-align: center;
+  padding: 10px;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -35,4 +51,15 @@ i {
 i:hover {
   cursor: pointer;
   color: #140302;
+}
+
+figure {
+  text-align: center;
+  display: inline-block;
+}
+
+.Image {
+  max-height: 45vh;
+  max-width: 100%;
+  object-fit: contain;
 }
