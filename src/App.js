@@ -37,7 +37,7 @@ function App() {
           />
           <Route 
             exact 
-            path="/" 
+            path="/liked" 
             render={() => (
               <PostPage 
                 message="No results found. Search for something else or like some posts!" 
