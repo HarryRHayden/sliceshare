@@ -15,11 +15,10 @@ input[type="file"] {
 
 .Content {
   background: #883D0D;
-  border: 1px solid #f17d3a;
+  border: 1px solid #140302;
   box-sizing: border-box;
   align-self: center;
   border-radius: 30px;
-  border-color: transparent;
   color: #140302;
   text-align: center;
   padding: 10px;
