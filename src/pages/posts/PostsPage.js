@@ -21,19 +21,27 @@ function PostsPage({ message, filter = "" }) {
     const [query, setQuery] = useState("");
 
     useEffect(() => {
-        const fetchPosts = async () => {
-            try {
-                const {data} = await axiosReq.get(`/posts/?${filter}search=${query}`);
-                setPosts(data);
-                setHasLoaded(true);
-            } catch (err){
-                console.log(err);
-            }
+      const fetchPosts = async () => {
+        try {
+          const { data } = await axiosReq.get(
+            `/posts/?${filter}search=${query}`
+          );
+          setPosts(data);
+          setHasLoaded(true);
+        } catch (err) {
+          console.log(err);
         }
+      };
 
-        setHasLoaded(false);
+      setHasLoaded(false);
+      const timer = setTimeout(() => {
         fetchPosts();
-    }, [filter, query, pathname])
+      }, 1000);
+
+      return () => {
+        clearTimeout(timer);
+      };
+    }, [filter, query, pathname]);
   
   return (
     <Row className="h-100">
