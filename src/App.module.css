@@ -22,6 +22,7 @@ input[type="file"] {
   color: #140302;
   text-align: center;
   padding: 10px;
+  overflow: hidden;
 }
 
 * {

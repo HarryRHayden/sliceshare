@@ -17,3 +17,8 @@
     cursor: default;
     color: #140302;
 }
+
+.Image {
+    object-fit: contain;
+    max-width: 100%;
+}

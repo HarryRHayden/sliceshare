@@ -18,10 +18,12 @@ function PostsPage({ message, filter = "" }) {
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
 
+    const [query, setQuery] = useState("");
+
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const {data} = await axiosReq.get(`/posts/${filter}`);
+                const {data} = await axiosReq.get(`/posts/?${filter}search=${query}`);
                 setPosts(data);
                 setHasLoaded(true);
             } catch (err){
@@ -31,7 +33,7 @@ function PostsPage({ message, filter = "" }) {
 
         setHasLoaded(false);
         fetchPosts();
-    }, [filter, pathname])
+    }, [filter, query, pathname])
   
   return (
     <Row className="h-100">
@@ -42,7 +44,9 @@ function PostsPage({ message, filter = "" }) {
           className={styles.SearchBar}
           onSubmit={(event) => event.preventDefault()}
         >
-          <Form.Control 
+          <Form.Control
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
             type="text" 
             className="mr-sm-2"
             placeholder="Search posts"
@@ -56,7 +60,7 @@ function PostsPage({ message, filter = "" }) {
               ))
             ) : (
               <Container className={appStyles.Content}>
-                <Asset src={NothingFound} message={message} />
+                <Asset className={appStyles.Image} src={NothingFound} message={message} />
               </Container>
             )}
           </>
