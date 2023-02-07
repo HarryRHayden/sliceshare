@@ -1,13 +1,13 @@
-import React from 'react'
+import React from "react";
 import styles from "../../styles/PostPage.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Card from "react-bootstrap/Card";
 import Media from "react-bootstrap/Media";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import appStyles from "../../App.module.css";
-import { OverlayTrigger, Tooltip } from 'react-bootstrap';
-import { axiosRes } from '../../api/axiosDefaults';
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import { axiosRes } from "../../api/axiosDefaults";
 
 const Post = (props) => {
   const {
@@ -31,13 +31,13 @@ const Post = (props) => {
 
   const handleLike = async () => {
     try {
-      const { data } = await axiosRes.post("/likes/", { post: id});
+      const { data } = await axiosRes.post("/likes/", { post: id });
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
           return post.id === id
-          ? {...post, likes_count: post.likes_count + 1, like_id: data.id }
-          : post;
+            ? { ...post, likes_count: post.likes_count + 1, like_id: data.id }
+            : post;
         }),
       }));
     } catch (err) {
@@ -52,8 +52,8 @@ const Post = (props) => {
         ...prevPosts,
         results: prevPosts.results.map((post) => {
           return post.id === id
-          ? {...post, likes_count: post.likes_count - 1, like_id: null }
-          : post;
+            ? { ...post, likes_count: post.likes_count - 1, like_id: null }
+            : post;
         }),
       }));
     } catch (err) {
@@ -66,13 +66,11 @@ const Post = (props) => {
       <Card.Body>
         <Media className="align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>
-            <Avatar src={profile_image} height={60}/>
+            <Avatar src={profile_image} height={60} />
             {owner}
           </Link>
-          <div className='d-flex align-items-center'>
-            <span>
-              {updated_at}
-            </span>
+          <div className="d-flex align-items-center">
+            <span>{updated_at}</span>
             {is_owner && postPage && "..."}
           </div>
         </Media>
@@ -81,14 +79,19 @@ const Post = (props) => {
         <Card.Img src={image} alt={title} />
       </Link>
       <Card.Body>
-        {title && <Card.Title className={appStyles.Content}>{title}</Card.Title>}
-        {content && <Card.Text >{content}</Card.Text>}
+        {title && (
+          <Card.Title className={appStyles.Content}>{title}</Card.Title>
+        )}
+        {content && <Card.Text>{content}</Card.Text>}
         <div className={styles.PostBar}>
           {is_owner ? (
-            <OverlayTrigger placement='top' overlay ={<Tooltip>You can't like your own post!!</Tooltip>}>
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>You can't like your own post!!</Tooltip>}
+            >
               <i className="far fa-thumbs-up" />
             </OverlayTrigger>
-          ): like_id ? (
+          ) : like_id ? (
             <span onClick={handleUnlike}>
               <i className={`fas fa-thumbs-up ${styles.ThumbUp}`} />
             </span>
@@ -97,7 +100,10 @@ const Post = (props) => {
               <i className={`far fa-thumbs-up ${styles.ThumbOutline}`} />
             </span>
           ) : (
-            <OverlayTrigger placement='top' overlay={<Tooltip>You must be logged in to like a post!</Tooltip>}>
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>You must be logged in to like a post!</Tooltip>}
+            >
               <i className="far fa-thumbs-up" />
             </OverlayTrigger>
           )}
@@ -109,7 +115,7 @@ const Post = (props) => {
         </div>
       </Card.Body>
     </Card>
-  )
-}
+  );
+};
 
-export default Post
+export default Post;

@@ -1,24 +1,24 @@
 .Post {
-    background-color: #f17d3a;
-    border: 1px solid #140302;
-    border-radius: 2px;
-    margin-bottom: 16px;
-    text-align: center;
-  }
-  
-  .Post figure,
-  h5 {
-    margin: 0 0;
-  }
-  
-  .ThumbUp {
-    color: #140302;
-  }
-  
-  .ThumbUp:hover {
-    color: #fef0de;
-  }
-  
-  .ThumbOutline:hover {
-    color: #140302;
-  }
+  background-color: #f17d3a;
+  border: 1px solid #140302;
+  border-radius: 2px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.Post figure,
+h5 {
+  margin: 0 0;
+}
+
+.ThumbUp {
+  color: #140302;
+}
+
+.ThumbUp:hover {
+  color: #fef0de;
+}
+
+.ThumbOutline:hover {
+  color: #140302;
+}

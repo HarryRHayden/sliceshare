@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-import Asset from "../../components/Asset"
+import Asset from "../../components/Asset";
 
 import Upload from "../../assets/upload_image.png";
 
@@ -17,7 +17,6 @@ import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 
 function PostCreateForm() {
-
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
@@ -32,46 +31,44 @@ function PostCreateForm() {
 
   const handleChange = (event) => {
     setPostData({
-        ...postData,
-        [event.target.name]: event.target.value
+      ...postData,
+      [event.target.name]: event.target.value,
     });
-  }
+  };
 
   const handleChangeImage = (event) => {
-    if(event.target.files.length){
+    if (event.target.files.length) {
       URL.revokeObjectURL(image);
       setPostData({
         ...postData,
         image: URL.createObjectURL(event.target.files[0]),
       });
     }
-  }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
 
-    formData.append('title', title)
-    formData.append('content', content)
-    formData.append('image', imageInput.current.files[0])
+    formData.append("title", title);
+    formData.append("content", content);
+    formData.append("image", imageInput.current.files[0]);
 
     try {
-      const {data} = await axiosReq.post('/posts/', formData);
-      history.push(`/posts/${data.id}`)
-    } catch(err) {
-      if (err.response?.status !== 401){
-        setErrors(err.response?.data)
+      const { data } = await axiosReq.post("/posts/", formData);
+      history.push(`/posts/${data.id}`);
+    } catch (err) {
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
       }
     }
-  }
+  };
 
   const textFields = (
     <div className="text-center">
       <Form.Group>
-        <Form.Label>
-          Title
-        </Form.Label>
-        <Form.Control 
+        <Form.Label>Title</Form.Label>
+        <Form.Control
           type="text"
           name="title"
           value={title}
@@ -101,14 +98,17 @@ function PostCreateForm() {
           {message}
         </Alert>
       ))}
-    
+
       <Button
         className={`${btnStyles.Button} ${btnStyles.Bright}`}
         onClick={() => history.goBack()}
       >
         Cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Bright}`} type="submit">
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.Bright}`}
+        type="submit"
+      >
         Create
       </Button>
     </div>
