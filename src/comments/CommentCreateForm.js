@@ -50,7 +50,7 @@ function CommentCreateForm(props) {
         <InputGroup>
           <Form.Control
             className={styles.Input}
-            placeholder="my comment..."
+            placeholder="Type your comment here...."
             as="textarea"
             value={content}
             onChange={handleChange}

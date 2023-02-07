@@ -22,3 +22,13 @@ h5 {
 .ThumbOutline:hover {
   color: #140302;
 }
+
+.Link {
+  text-decoration: none;
+  text-align: center;
+  display: block;
+}
+
+.Link span {
+  color: #140302;
+}
