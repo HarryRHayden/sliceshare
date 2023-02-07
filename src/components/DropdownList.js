@@ -15,7 +15,7 @@ const PenSquare = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
-export const DropdownToggle = () => {
+export const DropdownToggle = ({handleEdit, handleDelete}) => {
   return (
     <Dropdown className="ml-auto" drop="down">
       <Dropdown.Toggle as={PenSquare} />
@@ -26,14 +26,14 @@ export const DropdownToggle = () => {
       >
         <Dropdown.Item 
             className={styles.DropdownList}
-            onClick={() =>{}}
+            onClick={handleEdit}
             aria-label="edit"
         >
             <i className="fas fa-pen-to-square" />
         </Dropdown.Item>
         <Dropdown.Item
             className={styles.DropdownList}
-            onClick={() =>{}}
+            onClick={handleDelete}
             aria-label="delete"
         >
             <i className="fas fa-trash-can" />
