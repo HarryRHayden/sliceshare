@@ -1,0 +1,33 @@
+.Form {
+    border: none;
+    border-bottom: 2px #883D0D solid;
+}
+
+.Button {
+    border: solid 1px;
+    border-color: #140302;
+    background-color: #f17d3a;
+    color: #140302;
+    border-radius: 100px;
+    padding: 4px 10px;
+    min-width: 75px;
+    margin: 5px;
+}
+
+.Button:hover {
+    cursor: pointer;
+    background-color: #fef0de;
+    color: #140302;
+}
+
+.Input {
+    background: #f17d3a;
+    border: 1px solid #f17d3a;
+    box-sizing: border-box;
+    align-self: center;
+    border-radius: 100px;
+    border-color: transparent;
+    color: #140302;
+    text-align: center;
+    padding: 10px;
+  }
