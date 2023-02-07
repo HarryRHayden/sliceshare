@@ -1,6 +1,6 @@
 import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
-// import styles from "../styles/DropdownList.module.css";
+import styles from "../styles/DropdownMenu.module.css";
 
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
@@ -17,19 +17,27 @@ const PenSquare = React.forwardRef(({ onClick }, ref) => (
 
 export const DropdownToggle = () => {
   return (
-    <Dropdown>
+    <Dropdown className="ml-auto" drop="down">
       <Dropdown.Toggle as={PenSquare} />
 
       <Dropdown.Menu
-        className="text-center"
+        className={`text-center ${styles.DropdownMenu}`}
         popperConfig={{ strategy: "fixed" }}
       >
-        <Dropdown.Item eventKey="1">Red</Dropdown.Item>
-        <Dropdown.Item eventKey="2">Blue</Dropdown.Item>
-        <Dropdown.Item eventKey="3" active>
-          Orange
+        <Dropdown.Item 
+            className={styles.DropdownList}
+            onClick={() =>{}}
+            aria-label="edit"
+        >
+            <i className="fas fa-pen-to-square" />
         </Dropdown.Item>
-        <Dropdown.Item eventKey="1">Red-Orange</Dropdown.Item>
+        <Dropdown.Item
+            className={styles.DropdownList}
+            onClick={() =>{}}
+            aria-label="delete"
+        >
+            <i className="fas fa-trash-can" />
+        </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );

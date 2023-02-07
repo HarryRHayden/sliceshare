@@ -1,3 +1,7 @@
+.DropdownMenu {
+    background-color: #883D0D;
+}
+
 .DropdownList {
     display: inline-block;
     max-width: 60%;
@@ -8,4 +12,8 @@
     position: absolute;
     right: 0;
     z-index: 99;
+}
+
+.DropdownList i {
+    color: #f17d3a;
 }
