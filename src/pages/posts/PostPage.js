@@ -12,6 +12,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import CommentCreateForm from "../../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/PostPage.module.css";
+import Comment from "../../comments/Comment";
 
 function PostPage() {
   const { id } = useParams();
@@ -56,7 +57,9 @@ function PostPage() {
             "Comments"
           ) : null}
           {comments.results.length ? (
-            "comments here"
+            comments.results.map((comment) => (
+              <Comment key={comment.id} {...comment} />
+            ))
           ) : currentUser ? (
             <span>
               No comments have been made!! Why not be the first! Comment away!
