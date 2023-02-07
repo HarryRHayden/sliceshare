@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from "../styles/Profile.module.css";
 import Avatar from '../components/Avatar';
 import { useCurrentUser } from '../contexts/CurrentUserContext';
+import Button from 'react-bootstrap/Button';
 
 
 const Profile = (props) => {
@@ -32,6 +33,15 @@ const Profile = (props) => {
         </div>
         <div className={`mx-2 ${styles.Breaks}`}>
             <strong>{owner}</strong>
+        </div>
+        <div className={`text-right ${!mobile && 'ml-auto'}`}>
+            {!mobile && currentUser && !is_owner && (
+                following_id ? (
+                    <Button>Unfollow</Button>
+                ) : (
+                    <Button>Follow</Button>
+                )
+            )}
         </div>
     </div>
   )
