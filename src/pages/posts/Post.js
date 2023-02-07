@@ -8,6 +8,7 @@ import Avatar from "../../components/Avatar";
 import appStyles from "../../App.module.css";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { axiosRes } from "../../api/axiosDefaults";
+import { DropdownToggle } from "../../components/DropdownList";
 
 const Post = (props) => {
   const {
@@ -71,7 +72,7 @@ const Post = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_owner && postPage && "..."}
+            {is_owner && postPage && <DropdownToggle />}
           </div>
         </Media>
       </Card.Body>
