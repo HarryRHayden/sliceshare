@@ -51,14 +51,14 @@ export function ProfileEditDropdown({ id }) {
       <Dropdown.Toggle as={PenSquare} />
       <Dropdown.Menu>
         <Dropdown.Item
-          className={styles.DropdownList}
+          className={styles.DropdownLists}
           onClick={() => history.push(`/profiles/${id}/edit`)}
           aria-label="edit-profile"
         >
-          <i className="fas fa-edit" /> edit profile
+          <i className="fas fa-edit" /> Edit Profile
         </Dropdown.Item>
         <Dropdown.Item
-          className={styles.DropdownList}
+          className={styles.DropdownLists}
           onClick={() => history.push(`/profiles/${id}/edit/username`)}
           aria-label="edit-username"
         >
@@ -66,12 +66,12 @@ export function ProfileEditDropdown({ id }) {
           Edit Username
         </Dropdown.Item>
         <Dropdown.Item
-          className={styles.DropdownList}
+          className={styles.DropdownLists}
           onClick={() => history.push(`/profiles/${id}/edit/password`)}
           aria-label="edit-password"
         >
           <i className="fas fa-key" />
-          change password
+          Change Password
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

@@ -27,10 +27,11 @@ const ProfileEditForm = () => {
 
   const [profileData, setProfileData] = useState({
     name: "",
-    content: "",
+    about: "",
     image: "",
+    maker_or_eater: "",
   });
-  const { name, content, image } = profileData;
+  const { name, about, favourite_pizza, image, maker_or_eater = "Maker" } = profileData;
 
   const [errors, setErrors] = useState({});
 
@@ -39,8 +40,8 @@ const ProfileEditForm = () => {
       if (currentUser?.profile_id?.toString() === id) {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}/`);
-          const { name, content, image } = data;
-          setProfileData({ name, content, image });
+          const { name, about, image, maker_or_eater, favourite_pizza } = data;
+          setProfileData({ name, about, image, maker_or_eater, favourite_pizza });
         } catch (err) {
           console.log(err);
           history.push("/");
@@ -51,7 +52,7 @@ const ProfileEditForm = () => {
     };
 
     handleMount();
-  }, [currentUser, history, id]);
+  }, [currentUser, history, id, maker_or_eater, favourite_pizza]);
 
   const handleChange = (event) => {
     setProfileData({
@@ -64,7 +65,9 @@ const ProfileEditForm = () => {
     event.preventDefault();
     const formData = new FormData();
     formData.append("name", name);
-    formData.append("content", content);
+    formData.append("about", about);
+    formData.append("favourite_pizza", favourite_pizza);
+    formData.append("maker_or_eater", maker_or_eater)
 
     if (imageFile?.current?.files[0]) {
       formData.append("image", imageFile?.current?.files[0]);
@@ -86,29 +89,47 @@ const ProfileEditForm = () => {
   const textFields = (
     <>
       <Form.Group>
-        <Form.Label>Bio</Form.Label>
+        <Form.Label>About</Form.Label>
         <Form.Control
           as="textarea"
-          value={content}
+          value={about}
           onChange={handleChange}
-          name="content"
+          name="about"
           rows={7}
         />
+        <Form.Label>What is your favourite pizza?</Form.Label>
+        <Form.Control
+          as="textarea"
+          value={favourite_pizza}
+          onChange={handleChange}
+          name="favourite_pizza"
+          rows={1}
+        />
+        <Form.Label>Maker or Eater?</Form.Label>
+        <Form.Control 
+            as="select"
+            value={maker_or_eater}
+            onChange={handleChange}
+            name="maker_or_eater"
+        >
+            <option value="maker">Maker</option>
+            <option value="eater">Eater</option>
+        </Form.Control>
       </Form.Group>
 
-      {errors?.content?.map((message, idx) => (
+      {errors?.about?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
       ))}
       <Button
-        className={`${btnStyles.Button} ${btnStyles.Blue}`}
+        className={`${btnStyles.Button} ${btnStyles.Bright}`}
         onClick={() => history.goBack()}
       >
-        cancel
+        Cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        save
+      <Button className={`${btnStyles.Button} ${btnStyles.Bright}`} type="submit">
+        Update
       </Button>
     </>
   );
@@ -131,10 +152,10 @@ const ProfileEditForm = () => {
               ))}
               <div>
                 <Form.Label
-                  className={`${btnStyles.Button} ${btnStyles.Blue} btn my-auto`}
+                  className={`${btnStyles.Button} ${btnStyles.Bright} btn my-auto`}
                   htmlFor="image-upload"
                 >
-                  Change the image
+                  Change your image
                 </Form.Label>
               </div>
               <Form.File

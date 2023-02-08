@@ -17,3 +17,13 @@
 .DropdownList i {
     color: #f17d3a;
 }
+
+.DropdownLists {
+    display: inline-block;
+    max-width: 1000%;
+    padding: 3px;
+}
+
+.DropdownLists i {
+    color: #f17d3a;
+}
