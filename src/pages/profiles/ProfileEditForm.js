@@ -43,7 +43,7 @@ const ProfileEditForm = () => {
           const { name, about, image, maker_or_eater, favourite_pizza } = data;
           setProfileData({ name, about, image, maker_or_eater, favourite_pizza });
         } catch (err) {
-          console.log(err);
+          // console.log(err)(err);
           history.push("/");
         }
       } else {
@@ -81,7 +81,7 @@ const ProfileEditForm = () => {
       }));
       history.goBack();
     } catch (err) {
-      console.log(err);
+      // console.log(err)(err);
       setErrors(err.response?.data);
     }
   };

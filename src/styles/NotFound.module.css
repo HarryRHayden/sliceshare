@@ -1,0 +1,9 @@
+.Asset {
+    min-height: 120px;
+}
+
+.NotFound {
+    max-width: 60%;
+    align-items: center;
+    contain: content;
+}

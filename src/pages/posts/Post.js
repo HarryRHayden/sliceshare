@@ -6,7 +6,8 @@ import Media from "react-bootstrap/Media";
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import appStyles from "../../App.module.css";
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 import { axiosRes } from "../../api/axiosDefaults";
 import { DropdownToggle } from "../../components/DropdownList";
 
@@ -40,7 +41,7 @@ const Post = (props) => {
       await axiosRes.delete(`/posts/${id}/`)
       history.goBack();
     } catch(err) {
-      console.log(err);
+      // console.log(err)(err);
     }
   }
 
@@ -56,7 +57,7 @@ const Post = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err)(err);
     }
   };
 
@@ -72,7 +73,7 @@ const Post = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err)(err);
     }
   };
 
