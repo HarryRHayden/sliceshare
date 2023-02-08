@@ -5,6 +5,7 @@ import Avatar from '../../components/Avatar';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import Button from 'react-bootstrap/Button';
 import btnStyles from "../../styles/Button.module.css"
+import { useSetProfileData } from '../../contexts/ProfileDataContext';
 
 
 const Profile = (props) => {
@@ -22,6 +23,8 @@ const Profile = (props) => {
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
+
+    const {handleFollow} = useSetProfileData();
 
   return (
     <div
@@ -47,7 +50,7 @@ const Profile = (props) => {
                 ) : (
                     <Button
                         className={`${btnStyles.Button} ${btnStyles.Dark}`}
-                        onClick={() => {}}
+                        onClick={() => handleFollow(profile)}
                     >
                         Follow
                     </Button>
