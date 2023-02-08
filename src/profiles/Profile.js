@@ -4,6 +4,7 @@ import styles from "../styles/Profile.module.css";
 import Avatar from '../components/Avatar';
 import { useCurrentUser } from '../contexts/CurrentUserContext';
 import Button from 'react-bootstrap/Button';
+import btnStyles from "../styles/Button.module.css"
 
 
 const Profile = (props) => {
@@ -37,9 +38,19 @@ const Profile = (props) => {
         <div className={`text-right ${!mobile && 'ml-auto'}`}>
             {!mobile && currentUser && !is_owner && (
                 following_id ? (
-                    <Button>Unfollow</Button>
+                    <Button 
+                        className={`${btnStyles.Button} ${btnStyles.Bright}`}
+                        onClick={() => {}}
+                    >
+                        Unfollow
+                    </Button>
                 ) : (
-                    <Button>Follow</Button>
+                    <Button
+                        className={`${btnStyles.Button} ${btnStyles.Dark}`}
+                        onClick={() => {}}
+                    >
+                        Follow
+                    </Button>
                 )
             )}
         </div>

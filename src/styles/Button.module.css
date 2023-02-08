@@ -50,14 +50,14 @@
 .Dark,
 .DarkOutline:hover {
     background-color: #f17d3a;
-    color: #f17d3a;
+    color: #140302;
 }
 
 .Dark:hover,
 .DarkOutline {
     border-color: #140302;
     background-color: #fef0de;
-    color: #883D0D;
+    color: #140302;
 }
 
 .Bright {
