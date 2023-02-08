@@ -59,14 +59,6 @@ export function ProfileEditDropdown({ id }) {
         </Dropdown.Item>
         <Dropdown.Item
           className={styles.DropdownLists}
-          onClick={() => history.push(`/profiles/${id}/edit/username`)}
-          aria-label="edit-username"
-        >
-          <i className="far fa-id-card" />
-          Edit Username
-        </Dropdown.Item>
-        <Dropdown.Item
-          className={styles.DropdownLists}
           onClick={() => history.push(`/profiles/${id}/edit/password`)}
           aria-label="edit-password"
         >
