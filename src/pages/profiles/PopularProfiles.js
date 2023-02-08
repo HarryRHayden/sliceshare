@@ -1,8 +1,8 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
-import appStyles from "../App.module.css";
-import Asset from "../components/Asset";
-import { useProfileData } from "../contexts/ProfileDataContext";
+import { Container } from "react-bootstrap";
+import appStyles from "../../App.module.css";
+import Asset from "../../components/Asset";
+import { useProfileData } from "../../contexts/ProfileDataContext";
 import Profile from "./Profile";
 
 const PopularProfiles = ({ mobile }) => {
@@ -25,7 +25,7 @@ const PopularProfiles = ({ mobile }) => {
             </div>
           ) : (
             popularProfiles.results.map((profile) => (
-                <Profile key={profile.id} profile={profile} />
+              <Profile key={profile.id} profile={profile} />
             ))
           )}
         </>
