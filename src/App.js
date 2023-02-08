@@ -11,6 +11,7 @@ import PostPage from './pages/posts/PostPage';
 import { useCurrentUser } from './contexts/CurrentUserContext';
 import PostEditForm from './pages/posts/PostEdit';
 import ProfilePage from './pages/profiles/ProfilePage';
+import ProfileEditForm from './pages/profiles/ProfileEditForm';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -54,6 +55,11 @@ function App() {
           <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+          <Route
+            exact
+            path="/profiles/:id/edit"
+            render={() => <ProfileEditForm />}
+          />
           <Route render={() => <p>Page not found</p>} />
         </Switch>
       </Container>
